@@ -21,6 +21,6 @@ Using defaults. The first column will be used as a 'header' column, and the rest
 
 With custom settings
 
-    $('€myTable').responsiveTableWrap({breakpoint:500, splitAt:4, headerCount : 2});
+    $('#myTable').responsiveTableWrap({breakpoint:500, splitAt:4, headerCount : 2});
 
 By Mark Tombs LeanOn AB
