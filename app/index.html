@@ -15,33 +15,39 @@
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
         <!-- endbuild -->
         <style>
-            table {
-                width: 100%;
-                border:1px solid #eee;
-                padding:0;
-                margin:0;
-            }
-            td, th {
-                border:1px solid #eee;
-            }
+
             table.tw-wrapped {
                 border-left:2px solid red;
             }
-            .tw-over td, .tw-over th {
+
+            .tw-over td {
                 border:none;
-                background-color:#ddd;
+                -background-color:#ddd;
             }
 
-            .tw-under td, .tw-under th {
-                background-color:#eee;
+            .tw-under td {
+                -background-color:#eee;
                 border:none;
                 border-bottom:1px solid #eee;
             }
-            .tw-header {
+
+            /* add table striping */
+            .tw-wrapped > tbody > tr:nth-child(4n) > td {
                 background-color:#eee;
             }
+            .tw-wrapped > tbody > tr:nth-child(4n+1) > td {
+                background-color:#fff;
+            }
+            .tw-wrapped > tbody > tr:nth-child(4n+2) > td {
+                background-color:#fff;
+            }
+            .tw-wrapped > tbody > tr:nth-child(4n+3) > td {
+                 background-color:#eee;
+             }
         </style>
     </head>
     <body>
@@ -50,9 +56,11 @@
         <![endif]-->
 
 
-            <header class="header">
+            <header class="container">
                 <h3 class="text-muted">responsive tables</h3>
             </header>
+
+        <article class="container">
 
             <table class="table table-bordered table-striped table-hover table-responsive">
                 <thead>
@@ -122,6 +130,7 @@
                 </tbody>
             </table>
 
+        </article>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
@@ -132,7 +141,7 @@
 
 
         <!-- build:js scripts/main.js -->
-        <script src="scripts/responsive-tables.jquery.js"></script>
+        <script src="scripts/responsive-table-wrap.jquery.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 

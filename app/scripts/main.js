@@ -2,4 +2,4 @@
  * set up responsive table
  */
 
-$('.table-responsive').responsiveTables({breakpoint:600,splitAt:'auto', headerCount:1});
+$('.table-responsive').responsiveTableWrap({breakpoint:690,splitAt:'auto', headerCount:1});

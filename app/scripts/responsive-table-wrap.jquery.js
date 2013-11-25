@@ -1,10 +1,15 @@
 /**
  * responsive tables plugin for jquery.
+ *
  * @author mark.tombs@leanon.se
  * @copyright (c) 2013 LeanOn AB
  *
+ * This plugin will, at a certain window width, split the table rows in half and move half of it down. In effect,
+ * one row becomes too. Classes are added to enable styling while the table is wrapped. Usually the first column
+ * is reserved as a special 'id' column and given double height, but this it optional (option 'headerCount').
+ *
  * Options:
- * - breakpoint : 500 - at which window size should the table be wrapped?
+ * - breakpoint : 690 - at which window size should the table be wrapped?
  * - splitAt : 'auto' - or number of columns to keep in the first row. If auto, the table is split in half.
  * - classPrefix : 'tw' - in case of class name clashes you can change the prefix prepended to class names.
  * - headerCount : 1 - the number of header columns that should be given rowcount=2 and not wrapped.
@@ -13,7 +18,7 @@
 'use strict';
 (function ($) {
 
-  $.fn.responsiveTables = function (options) {
+  $.fn.responsiveTableWrap = function (options) {
 
     // some variables
     var settings, state, elements, classes;
@@ -26,7 +31,7 @@
 
     // defaults
     settings = $.extend({}, {
-      breakpoint: 500,
+      breakpoint: 690,
       classPrefix: 'tw-',
       splitAt: 'auto',
       headerCount: 1
