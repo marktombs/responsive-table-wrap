@@ -13,6 +13,8 @@
  * - splitAt : 'auto' - or number of columns to keep in the first row. If auto, the table is split in half.
  * - classPrefix : 'tw' - in case of class name clashes you can change the prefix prepended to class names.
  * - headerCount : 1 - the number of header columns that should be given rowcount=2 and not wrapped.
+ * - rowSelector : tr:not(.tw-over,.tw-under) - override this if you only want to wrap the body for example
+ * - cellSelector : th:visible, td:visible - override if you only want to count certain cells
  *
  */
 'use strict';
@@ -21,7 +23,7 @@
   $.fn.responsiveTableWrap = function (options) {
 
     // some variables
-    var settings, state, elements, classes;
+    var settings, state, elements, classes, cellSelector, rowSelector;
 
     // for tracking state
     state = {
@@ -34,7 +36,9 @@
       breakpoint: 690,
       classPrefix: 'tw-',
       splitAt: 'auto',
-      headerCount: 1
+      headerCount: 1,
+      rowSelector : 'tr:not(.tw-over,.tw-under)',
+      cellSelector : 'th:visible, td:visible'
     }, options);
 
     classes = {
@@ -52,6 +56,9 @@
 
     state.state = state.unwrapped;
     elements = this;
+    rowSelector = settings.rowSelector;
+    cellSelector = settings.cellSelector;
+
 
     /**
      * for every row in the table add a new row under it and move half of the row down
@@ -64,10 +71,10 @@
         var $table = $(e);
         $table.addClass(classes.table);
         // for every row in the table...
-        $table.find('tr').each(function (j, tr) {
+        $table.find(rowSelector).each(function (j, tr) {
 
           var $tr = $(tr);
-          var $trCells = $tr.find('td,th');
+          var $trCells = $tr.find(cellSelector);
 
           // set up autosplitting if its turned on
           var splitAt = settings.splitAt;
@@ -94,15 +101,16 @@
 
           $tr.addClass(classes.over);
           // refresh the cells as we've removed a load now
-          $trCells = $tr.find('td,th');
+          $trCells = $tr.find(cellSelector);
 
           $newrow.addClass(classes.under);
           // if the number of cols in over and under is not the same extend the last
           // col in the shorter row
-          var colCountDiff = $trCells.length - $newrow.find('td,th').length;
+          // can't use the cellSelector here cos these cells are currently invislbe
+          var colCountDiff = $trCells.length - $newrow.find('th,td').length;
           if (colCountDiff > 0) {
             // lower
-            $newrow.find('td,th').last().attr('colspan', colCountDiff).addClass(classes.stretched);
+            $newrow.find('th,td').last().attr('colspan', colCountDiff).addClass(classes.stretched);
           }
           if (colCountDiff < 0) {
             // upper
