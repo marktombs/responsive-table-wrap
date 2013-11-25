@@ -1,0 +1,141 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>responsive tables</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+        <style>
+            table {
+                width: 100%;
+                border:1px solid #eee;
+                padding:0;
+                margin:0;
+            }
+            td, th {
+                border:1px solid #eee;
+            }
+            table.tw-wrapped {
+                border-left:2px solid red;
+            }
+            .tw-over td, .tw-over th {
+                border:none;
+                background-color:#ddd;
+            }
+
+            .tw-under td, .tw-under th {
+                background-color:#eee;
+                border:none;
+                border-bottom:1px solid #eee;
+            }
+            .tw-header {
+                background-color:#eee;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+            <header class="header">
+                <h3 class="text-muted">responsive tables</h3>
+            </header>
+
+            <table class="table table-bordered table-striped table-hover table-responsive">
+                <thead>
+                <tr>
+                    <th data-wrap='false'>one</th>
+                    <th>two monkeys</th>
+                    <th>three tigers</th>
+                    <th>four bears</th>
+                    <th>five badgers</th>
+                    <th>six lemmings</th>
+                    <th>seven beavers</th>
+                    <th>eight rhinos</th>
+                    <th>nine spiders</th>
+                    <th>ten elephants</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/responsive-tables.jquery.js"></script>
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+
+
+</body>
+</html>
