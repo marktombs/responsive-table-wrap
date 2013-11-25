@@ -1,5 +1,4 @@
 # Responsive Table Wrap
-author mark.tombs@leanon.se 2013 LeanOn AB
 
 A plugin for making tables a bit responsive. The idea is that for small devices we wrap infividual rows, so instead of 
 one row per item there are two. Then you can fit in twice as much stuff on the little screen.
@@ -23,3 +22,5 @@ Using defaults. The first column will be used as a 'header' column, and the rest
 With custom settings
 
     $('€myTable').responsiveTableWrap({breakpoint:500, splitAt:4, headerCount : 2});
+
+By Mark Tombs LeanOn AB
